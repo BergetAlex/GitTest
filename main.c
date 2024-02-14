@@ -1,11 +1,25 @@
 #include <stdio.h>
+#define INT_SIZE sizeof(int)
 
 int main() {
-    int a = 2;
-    int b = 3;
-    int sum;
-    sum = a + b;
-    printf("Hello, World\n");
-    printf("%d", sum);
+    int num, index, i;
+    int bin[INT_SIZE];
+   
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    index = INT_SIZE - 1;
+    
+    while(index >= 0){
+        bin[index] = num & 1;
+        index--;
+        num >>= 1;
+    }
+
+        printf("Your number converted to binary is: ");
+   
+    for(i=0; i<INT_SIZE; i++){
+        printf("%d", bin[i]);
+    }
     return 0;
 }
